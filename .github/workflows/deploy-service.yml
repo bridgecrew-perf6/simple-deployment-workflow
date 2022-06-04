@@ -1,4 +1,4 @@
-name: Continuous Integration Deploy Sevice
+name: Deploy Sevice
 
 on:
   deployment:
@@ -19,7 +19,7 @@ jobs:
           if: success()
           uses: chrnorm/deployment-status@v2
           with:
-            token: '${{ secrets.GITHUB_TOKEN }}'            
+            token: '${{ secrets.GITHUB_TOKEN }}'
             state: 'success'
             deployment-id: ${{ steps.deployment.outputs.deployment_id }}
 
