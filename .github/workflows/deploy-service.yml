@@ -3,16 +3,24 @@ name: Continuous Integration Deploy Sevice
 on:
   deployment:
     
-
 jobs:
   deploy:
     name: "Deploy Service to test"
     runs-on: "ubuntu-latest"
-    environment: test    
+    environment: test
     steps:
 
         - uses: actions/checkout@v2
 
         - run: |
             echo "success"
+
+        - name: Update deployment status (success)
+          if: success()
+          uses: chrnorm/deployment-status@v2
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            environment-url: http://my-app-url.com
+            state: 'success'
+            deployment-id: ${{ steps.deployment.outputs.deployment_id }}
 
