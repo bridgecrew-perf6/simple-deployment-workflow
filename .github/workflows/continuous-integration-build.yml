@@ -1,0 +1,20 @@
+name: Continuous Integration Build
+
+on:
+  push:
+    branches:
+      - "main"
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Compile Source code
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+
+      - run: |
+          echo "success"
