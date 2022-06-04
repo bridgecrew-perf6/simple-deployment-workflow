@@ -12,6 +12,8 @@ jobs:
   deploy:
     name: "Create a Deployment"
     runs-on: "ubuntu-latest"
+    permissions:
+      deployments: write
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
 
