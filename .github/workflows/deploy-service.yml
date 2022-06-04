@@ -1,0 +1,19 @@
+name: Continuous Integration Deploy Sevice
+
+on:
+  deployment:
+    
+
+jobs:
+  deploy:
+    name: "Deploy Service to test"
+    runs-on: "ubuntu-latest"
+    environment: test
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+
+        - uses: actions/checkout@v2
+
+        - run: |
+            echo "success"
+
