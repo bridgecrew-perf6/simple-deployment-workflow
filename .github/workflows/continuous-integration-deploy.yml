@@ -1,0 +1,21 @@
+name: Continuous Integration Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - "Version Bump"
+    
+
+jobs:
+  deploy:
+    name: "Deploy to test"
+    runs-on: "ubuntu-latest"
+    environment: test
+    steps:
+
+        - uses: actions/checkout@v2
+
+        - run: |
+            echo "success"
+
+
