@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    name: "Create a Deployment"
+    name: "Initiate Deployment"
     runs-on: "ubuntu-latest"
     permissions:
       deployments: write
